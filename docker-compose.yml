@@ -1,0 +1,14 @@
+services:
+  pub-sub:
+    image: gcr.io/google.com/cloudsdktool/google-cloud-cli
+    build:
+      args:
+        INSTALL_COMPONENTS: pubsub-emulator
+    ports:
+      - "8085:8085"
+    command:
+      - /bin/sh
+      - -c
+      - gcloud beta emulators pubsub start --project=test-project --host-port=0.0.0.0:8085
+    environment:
+      PUBSUB_EMULATOR_HOST: 0.0.0.0:8085
