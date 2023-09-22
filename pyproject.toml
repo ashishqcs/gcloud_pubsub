@@ -1,17 +1,20 @@
 [tool.poetry]
-name = "midnight-gcloud-pubsub"
+name = "gcloud-pubsub"
 version = "0.1.0"
 description = ""
 authors = ["Ashish"]
 readme = "README.md"
-packages = [{include = "midnight"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = "^0.103.1"
 uvicorn = "^0.23.2"
 google-cloud-pubsub = "^2.18.4"
+pyyaml = "^6.0.1"
 
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.2"
 
 [build-system]
 requires = ["poetry-core"]
