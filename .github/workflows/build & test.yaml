@@ -25,6 +25,6 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest
+        docker-compose -f docker-compose-ci.yml -p pubsub-service run --name pubsub-service pubsub-service pytest ./test/*
 
 

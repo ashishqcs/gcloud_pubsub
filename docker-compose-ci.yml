@@ -1,0 +1,9 @@
+services:
+  pubsub-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/data
+    ports:
+      - "8080:8080"
