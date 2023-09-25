@@ -23,7 +23,10 @@ jobs:
         key: poetry-1.3.2-0
 
     - name: Install Poetry
-      run: pip install poetry
+      run: |
+        pip install poetry
+        poetry config virtualenvs.create false
+      
 
     - name: cache deps
       id: cache-deps
