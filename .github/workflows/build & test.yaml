@@ -25,9 +25,7 @@ jobs:
     - name: Install Poetry
       run: |
         pip install poetry
-        poetry config virtualenvs.create true
-        poetry config virtualenvs.in.project: true
-      
+#        poetry config virtualenvs.create true
 
     - name: cache deps
       id: cache-deps
@@ -36,13 +34,13 @@ jobs:
         path: .venv
         key: pydeps-${{ hashFiles('**/poetry.lock') }}
 
-    - run: poetry install --no-interaction
+    - run: poetry install --no-interaction --no-root
       if: steps.cache-deps.outputs.cache-hit != 'true'
 #
 #    - name: Run tests
 #      run: |
 #        docker-compose -f docker-compose-ci.yml -p pubsub-service run --name pubsub-service pubsub-service pytest ./test/*
-
+    - run: poetry install --no-interaction
     - run: poetry run pytest
 
 
